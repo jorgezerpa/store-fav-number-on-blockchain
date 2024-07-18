@@ -11,7 +11,13 @@ contract FavNumberStorage {
 
     Person[] public listOfPeopleFavNumber;
 
+    mapping(string => uint256) public nameToNumber;
+
+// calldata -> Temp. Modif., memory Temp. notModif., storage permanent.NotModif, code, logs, stack 
     function addPersonFavNumber(string memory _name, uint256 _favoriteNumber) public {
         listOfPeopleFavNumber.push(Person(_favoriteNumber, _name));
+        nameToNumber[_name] = _favoriteNumber;
     }
+    
+
 }
